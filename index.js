@@ -10,3 +10,19 @@
 - Crear objeto con 2 values: número input + resultado correspondiente
 */
 
+const historialResponses = []
+
+function calculateResult(){
+
+    // Crear variables
+
+    let numberInput = document.getElementById("number-input").value
+    let firstResponse = "Fizz"
+    let secondResponse = "Buzz"
+    let thirdResponse = `${firstResponse}${secondResponse}`
+    let errorMessage = `El número introducido no és válido`
+
+    
+
+
+}
