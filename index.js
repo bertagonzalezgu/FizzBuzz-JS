@@ -28,29 +28,6 @@ function calculateResult(){
     let errorMessage = 'El número introducido no es válido'
     let result;
 
-    // Validación
-
-    if(numberInput === NaN | numberInput === ''){
-        console.log(errorMessage)
-        alert(errorMessage)
-        return;
-    }
-
-    // Lógica
-
-    if((numberInput / 3) === 0){
-        result = firstResponse
-    } else if(numberInput / 5){
-        result = secondResponse
-    } else if((numberInput / 3) === 0 && (numberInput / 5) === 0){
-        result = thirdResponse
-    } else if(!(numberInput / 3) === 0 && (numberInput / 5) === 0){
-        result = numberInput
-    }
-
-    historialResponses.push(numberInput)
-    console.log(historialResponses)
-
     let object = [
         {
             number: `${numberInput}`,
@@ -58,10 +35,43 @@ function calculateResult(){
         }
     ];
 
-    arrayObjects.push(object)
-    console.log(arrayObjects)
+    // Validación
+
+    if(isNaN(numberInput) | numberInput === ''){
+        alert(errorMessage)
+        console.log(errorMessage)
+        return;
+    }
+
+    for(let i = 0; i <= historialResponses.lenght; i++){
+        i += historialResponses.push(numberInput)
+        console.log(historialResponses)
+    }
+20
+    // Lógica
+
+    if((numberInput % 3 === 0) && (numberInput % 5 === 0)){
+        result = thirdResponse
+        console.log(`${thirdResponse}`, result)
+    } else if(numberInput % 5 === 0){
+        result = secondResponse
+        console.log(`${secondResponse}`, result)
+    } else if(numberInput % 3 === 0){
+        result = firstResponse
+        console.log(`${firstResponse}`, result)
+    } else if(!(numberInput % 3 === 0) && !(numberInput % 5 === 0)){
+        result = numberInput
+        console.log(`${numberInput}`, result)
+    }
+
+    for(let i = 0; i <= arrayObjects.length; i++){
+        arrayObjects.push(object)
+        console.log(arrayObjects)
+    }
 
     document.getElementById("response").innerHTML = `Resultado: ${result}<br>
-    Historial de resultados: ${historialResponses.join(', ')}`// también devuelve objeto
+    Historial de resultados: ${historialResponses.join(', ')}`
+    }
 
-}
+    
+
