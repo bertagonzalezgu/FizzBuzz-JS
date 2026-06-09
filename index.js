@@ -22,14 +22,17 @@ function calculateResult(){
     let firstResponse = "Fizz"
     let secondResponse = "Buzz"
     let thirdResponse = `${firstResponse}${secondResponse}`
-    let errorMessage = `El número introducido no és válido`
+    let errorMessage = 'El número introducido no es válido'
     let result;
 
     // Validación
 
-    if(numberInput === isNaN){
-
+    if(numberInput === isNaN && numberInput < 0){
+        alert(errorMessage)
+        return;
     }
+
+    
 
 
 }
