@@ -10,33 +10,58 @@
 - Crear objeto con 2 values: número input + resultado correspondiente
 */
 
-const historialResponses = []
-
 function calculateResult(){
     console.log('Entra la función')
+
+    let historialResponses = []
+    let arrayObjects = []
 
     // Crear variables
 
     let numberInput = parseInt(document.getElementById("number-input").value)
+    console.log(numberInput)
     let responseId = document.getElementById("response")
 
-    let firstResponse = "Fizz"
-    let secondResponse = "Buzz"
+    let firstResponse = 'Fizz'
+    let secondResponse = 'Buzz'
     let thirdResponse = `${firstResponse}${secondResponse}`
     let errorMessage = 'El número introducido no es válido'
     let result;
 
     // Validación
 
-    if(numberInput === NaN | numberInput < 0){
-        console.log('Entra la validación')
+    if(numberInput === NaN | numberInput === ''){
+        console.log(errorMessage)
         alert(errorMessage)
         return;
     }
 
     // Lógica
 
+    if((numberInput / 3) === 0){
+        result = firstResponse
+    } else if(numberInput / 5){
+        result = secondResponse
+    } else if((numberInput / 3) === 0 && (numberInput / 5) === 0){
+        result = thirdResponse
+    } else if(!(numberInput / 3) === 0 && (numberInput / 5) === 0){
+        result = numberInput
+    }
 
+    historialResponses.push(numberInput)
+    console.log(historialResponses)
 
+    let object = [
+        {
+            number: `${numberInput}`,
+            result: `${result}`
+        }
+    ];
+
+    arrayObjects.push(object)
+    console.log(arrayObjects)
+
+    document.getElementById("response").innerHTML = `Resultado: ${result}<br>
+    Historial de resultados: ${historialResponses.join(', ')}`// también devuelve objeto
 
 }
