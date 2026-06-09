@@ -16,13 +16,20 @@ function calculateResult(){
 
     // Crear variables
 
-    let numberInput = document.getElementById("number-input").value
+    let numberInput = parseInt(document.getElementById("number-input").value)
+    let responseId = document.getElementById("response")
+
     let firstResponse = "Fizz"
     let secondResponse = "Buzz"
     let thirdResponse = `${firstResponse}${secondResponse}`
     let errorMessage = `El número introducido no és válido`
+    let result;
 
-    
+    // Validación
+
+    if(numberInput === isNaN){
+
+    }
 
 
 }
