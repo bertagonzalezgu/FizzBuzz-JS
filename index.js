@@ -13,6 +13,7 @@
 const historialResponses = []
 
 function calculateResult(){
+    console.log('Entra la función')
 
     // Crear variables
 
@@ -27,12 +28,15 @@ function calculateResult(){
 
     // Validación
 
-    if(numberInput === isNaN && numberInput < 0){
+    if(numberInput === NaN | numberInput < 0){
+        console.log('Entra la validación')
         alert(errorMessage)
         return;
     }
 
-    
+    // Lógica
+
+
 
 
 }
