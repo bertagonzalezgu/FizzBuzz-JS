@@ -1,5 +1,7 @@
 "use strict";
 
+import { showResult } from "./src/scripts/fizzbuzz-ui.js";
+
 /* To Do:
 - Crear "form" html con input
 - Crear boton
@@ -12,69 +14,11 @@
 - Crear objeto con 2 values: número input + resultado correspondiente
 */
 
-// Variables fuera de la función porque son comunes
-let historialResponses = [] // historial de resultados obtenidos, no de inputs!!!
-let arrayObjects = []
-
 // Aquí el listener:
 
-document.getElementById('btn-result').addEventListener('click', calculateResult)
+document.getElementById('btn-result').addEventListener('click', showResult)
 
-function calculateResult(){
-    console.log('Entra la función')
 
-    // Crear variables
-
-    let numberInput = parseInt(document.getElementById("number-input").value)
-    console.log(numberInput)
-    let responseId = document.getElementById("response")
-
-    let firstResponse = 'Fizz'
-    let secondResponse = 'Buzz'
-    let thirdResponse = `${firstResponse}${secondResponse}`
-    let errorMessage = 'El número introducido no es válido'
-    let result;
-
-    // Validación
-
-    if(isNaN(numberInput) | numberInput === ''){
-        alert(errorMessage)
-        console.log(errorMessage)
-        return;
-    }    
-
-    // Lógica
-
-    if((numberInput % 3 === 0) && (numberInput % 5 === 0)){
-        result = thirdResponse
-        console.log(`${thirdResponse}`, result)
-    } else if(numberInput % 5 === 0){
-        result = secondResponse
-        console.log(`${secondResponse}`, result)
-    } else if(numberInput % 3 === 0){
-        result = firstResponse
-        console.log(`${firstResponse}`, result)
-    } else{
-        result = numberInput
-        console.log(`${numberInput}`, result)
-    }
-
-    let object = {
-            number: `${numberInput}`,
-            result: `${result}`
-        };
-
-    historialResponses.push(result)
-    console.log(historialResponses)
-
-    arrayObjects.push(object)
-    console.log(arrayObjects)
-
-    // Respuesta
-
-    responseId.innerHTML = `Resultado: ${result}<br>
-    Historial de resultados: ${historialResponses.join(', ')}`
-    }
 
     
 
