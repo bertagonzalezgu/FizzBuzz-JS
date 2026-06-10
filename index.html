@@ -12,10 +12,10 @@
     <label for="number-input">Introduce un número</label>
     <input type="text" id="number-input" placeholder="Escribe aquí tu número">
 
-    <button onclick="calculateResult()">Resultado</button>
+    <button id="btn-result">Resultado</button>  <!--tengo que quitar el onclick porque con la propiedad type = module en el script, pasa a ser privado y no lo lee, por eso guardamos con un id y añadimos addEventListener en el .js fuera de la función para que lo pueda leer-->
     <br>
     <div id="response"></div>
 
-    <script src="index.js"></script>
+    <script type="module" src="index.js"></script>
 </body>
 </html>

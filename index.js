@@ -1,3 +1,5 @@
+"use strict";
+
 /* To Do:
 - Crear "form" html con input
 - Crear boton
@@ -10,11 +12,16 @@
 - Crear objeto con 2 values: número input + resultado correspondiente
 */
 
+// Variables fuera de la función porque son comunes
+let historialResponses = [] // historial de resultados obtenidos, no de inputs!!!
+let arrayObjects = []
+
+// Aquí el listener:
+
+document.getElementById('btn-result').addEventListener('click', calculateResult)
+
 function calculateResult(){
     console.log('Entra la función')
-
-    let historialResponses = []
-    let arrayObjects = []
 
     // Crear variables
 
@@ -28,26 +35,14 @@ function calculateResult(){
     let errorMessage = 'El número introducido no es válido'
     let result;
 
-    let object = [
-        {
-            number: `${numberInput}`,
-            result: `${result}`
-        }
-    ];
-
     // Validación
 
     if(isNaN(numberInput) | numberInput === ''){
         alert(errorMessage)
         console.log(errorMessage)
         return;
-    }
+    }    
 
-    for(let i = 0; i <= historialResponses.lenght; i++){
-        i += historialResponses.push(numberInput)
-        console.log(historialResponses)
-    }
-20
     // Lógica
 
     if((numberInput % 3 === 0) && (numberInput % 5 === 0)){
@@ -59,17 +54,25 @@ function calculateResult(){
     } else if(numberInput % 3 === 0){
         result = firstResponse
         console.log(`${firstResponse}`, result)
-    } else if(!(numberInput % 3 === 0) && !(numberInput % 5 === 0)){
+    } else{
         result = numberInput
         console.log(`${numberInput}`, result)
     }
 
-    for(let i = 0; i <= arrayObjects.length; i++){
-        arrayObjects.push(object)
-        console.log(arrayObjects)
-    }
+    let object = {
+            number: `${numberInput}`,
+            result: `${result}`
+        };
 
-    document.getElementById("response").innerHTML = `Resultado: ${result}<br>
+    historialResponses.push(result)
+    console.log(historialResponses)
+
+    arrayObjects.push(object)
+    console.log(arrayObjects)
+
+    // Respuesta
+
+    responseId.innerHTML = `Resultado: ${result}<br>
     Historial de resultados: ${historialResponses.join(', ')}`
     }
 
