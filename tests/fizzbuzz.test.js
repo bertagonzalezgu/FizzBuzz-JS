@@ -1,12 +1,16 @@
-import { describe, test, expect } from "vitest";
+import { describe, test, expect, beforeEach } from "vitest";
 
 import { showResult } from "../src/scripts/fizzbuzz-ui";
 import { calculateResult } from "../src/scripts/fizzbuzz";
 
 import { historialResponses } from "../src/scripts/fizzbuzz-ui";
-import { arrayObjects } from "../src/scripts/fizzbuzz-ui";
+import { arrayObjects } from "../src/scripts/fizzbuzz";
 
 describe('Validación de FizzBuzz', () => {
+
+  beforeEach (()=> {
+    arrayObjects.length = 0;
+    });
 
   test('Given un número 9 / When el número es procesado / Then se muestra "Fizz"', () => {
 
@@ -34,16 +38,16 @@ describe('Validación de FizzBuzz', () => {
   
   });
 
-  /* test('Given un número 9 y un número 10 / When el usuario los ingresa secuencialmente / Then el historial muestra "9: Fizz" y "10: Buzz"', () => {
+  test('Given un número 9 y un número 10 / When el usuario los ingresa secuencialmente / Then el historial muestra "9: Fizz" y "10: Buzz"', () => {
     
     calculateResult(9);
     calculateResult(10);
 
-  expect(arrayObjects).toBe([{ number: "9",
+  expect(arrayObjects).toEqual([{ number: "9",
                               result: "Fizz" },
                             { number: "10",
                               result: "Buzz" }])
   
-  }); */
+  });
 
 });
